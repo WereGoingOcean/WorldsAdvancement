@@ -1,0 +1,14 @@
+{
+  "name": "static-site",
+  "dependencies": {
+    "chokidar": "^1.7.0",
+    "highlight.js": "^9.12.0",
+    "hot-server": "^0.0.16",
+    "lit-node": "^0.0.1",
+    "marked": "^0.3.6"
+  },
+  "scripts": {
+    "start": "hot-server",
+    "build": "lit-node source/_posts/2018-05-24-literate-blogging.md"
+  }
+}
