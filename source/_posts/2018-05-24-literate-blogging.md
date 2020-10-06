@@ -77,12 +77,20 @@ Passed the path of a post, `parsePost` reads the title, url, date and publish st
 
 ```javascript
 function parsePost(path) {
-  var [top, body] = fs
+  var [top, _, _, body] = fs
     .readFileSync(path, "utf8")
     .replace(/$---(\r\n|\n|\r)/gm, "")
     .split(/(\r\n|\n|\r)---(\r\n|\n|\r)/gm);
 
+  /*
+  console.log("TOP");
+  console.log(top);
+  console.log("BODY");
+  console.log(body);
+*/
+
   var post = { html: marked(body) };
+  //console.log(post);
   top.split("\n").forEach((line) => {
     var [key, val] = line.split(/: (.+)/);
     post[key] = val;
