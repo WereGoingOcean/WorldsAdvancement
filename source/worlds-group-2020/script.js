@@ -18,11 +18,11 @@ Annotation example
 
 
 var ƒ = d3.f
-d3.loadData('annotations.json', 'matches2.tsv', function (err, res) {
+d3.loadData('matches2.tsv', function (err, res) {
   d3.selectAll('.group-header').st({ opacity: 1 })
 
-  annotations = res[0]
-  matches = res[1]
+  annotations = []
+  matches = res[0]
 
   teams2wins = {}
 
@@ -69,7 +69,7 @@ function scoreMatches(matches) {
 
     // in 3-way tie, only head2head winning record gets out of tiebreaker
     if (d.length != 3) return
-    console.log(d.length, d.map(d => d.w).join(' '))
+    //console.log(d.length, d.map(d => d.w).join(' '))
     // console.log(d.length, JSON.parse(JSON.stringify(d)))
     d.forEach(function (d) { d.w = d.w > 2 ? d.w : 0 })
   })
